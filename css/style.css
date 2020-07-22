@@ -1,0 +1,116 @@
+#game-board {
+    width: 100%;
+    height: 100%;
+    background-color: azure;
+}
+
+h1 {
+    text-align: center;
+    margin: 5px;
+}
+
+.title-box {
+    width: 100%;
+    height: 15%;
+    background-color: gold;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.top-bottom-container {
+    width: 100%;
+    height: 100%;
+    /* padding: 0% 17.5%; */
+    display: flex;
+    justify-content: center;
+}
+
+.top-container {
+    width: 100%;
+    height: 40%;
+}
+
+.timer {
+    background-color: blueviolet;
+    width: 30%;
+    height: 100%;
+    margin: 0 1%;
+}
+
+.player-icon {
+    background-color: chocolate;
+    width: 10%;
+    height: 100%;
+    margin: 0 1%;
+}
+
+.score {
+    background-color: darkgray;
+    width: 30%;
+    height: 100%;
+    margin: 0 1%;
+}
+
+.footer-element {
+    width: 100%;
+    height: 15%;
+    background-color: gold;
+}
+
+.middle-element-container {
+    width: 100%;
+    height: 70%;
+    display: flex;
+}
+
+.scene {
+    display: flex;
+    flex-direction: column;
+    width: 99vw;
+    height: 97vh;
+}
+
+.side-element {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 17.5%;
+    background-color: darkblue;
+    height: 100%;
+}
+
+.board-area {
+    display: flex;
+    justify-content: center;
+    width: 65%;
+    height: 100%;
+}
+
+.closed:hover {
+    cursor: pointer;
+    background-color: rgb(8, 222, 222);
+}
+
+
+/* .cell:hover {} */
+
+.cell {
+    border: 5px;
+    background-color: cyan;
+    min-width: 32px;
+    min-width: 32px;
+    max-width: 100px;
+    max-height: 100px;
+    box-shadow: 0 0 3px #000000;
+    transition: 0.1s;
+}
+
+.safe {
+    /* for a safe click */
+    background-color: brown;
+}
+
+.flag {
+    background-color: chocolate;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class='scene'>
+        <div class='title-box'>
+            <div class="top-container">
+                <h1>Minesweeper</h1>
+            </div>
+            <div class="top-bottom-container">
+                <div class="timer">
+                </div>
+                <div class="player-icon"></div>
+                <div class="score">
+
+                </div>
+            </div>
+        </div>
+        <div class="middle-element-container">
+            <div class="left-element side-element"></div>
+            <div class="board-area">
+                <table id="game-board">
+                    <tbody>
+                        <tr>
+                            <td id="cell0-0" class="cell closed" onclick="clickCell(this,0,0)" oncontextmenu="flagCell(this,0,0)">c</td>
+                            <td id="cell0-1" class="cell minAdj" onclick="clickCell(this,0,1)">1</td>
+                            <td id="cell0-2" class="cell blankCell" onclick="clickCell(this,0,2)"> </td>
+                            <td id="cell0-3" class="cell blankCell" onclick="clickCell(this,0,3)"> </td>
+                        </tr>
+                        <tr>
+                            <td id="cell1-0" class="cell detonated" onclick="clickCell(this,1,0)">m</td>
+                            <td id="cell1-1" class="cell minAdj" onclick="clickCell(this,1,1)">2</td>
+                            <td id="cell1-2" class="cell minAdj" onclick="clickCell(this,1,2)">1</td>
+                            <td id="cell1-3" class="cell blankCell" onclick="clickCell(this,1,3)"> </td>
+                        </tr>
+                        <tr>
+                            <td id="cell2-0" class="cell minAdj" onclick="clickCell(this,2,0)">2</td>
+                            <td id="cell2-1" class="cell closed" onclick="clickCell(this,2,1)">c</td>
+                            <td id="cell2-2" class="cell minAdj" onclick="clickCell(this,2,2)">1</td>
+                            <td id="cell2-3" class="cell blankCell" onclick="clickCell(this,2,3)"> </td>
+                        </tr>
+                        <tr>
+                            <td id="cell3-0" class="cell minAdj" onclick="clickCell(this,3,0)">1</td>
+                            <td id="cell3-1" class="cell closed" onclick="clickCell(this,3,1)">c</td>
+                            <td id="cell3-2" class="cell minAdj" onclick="clickCell(this,3,2)">1</td>
+                            <td id="cell3-3" class="cell blankCell" onclick="clickCell(this,3,3)"> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="right-element side-element"></div>
+        </div>
+        <div class="footer-element"></div>
+    </div>
+    </div>
+    </div>
+</body>
+<footer>
+    <script src="js/utils.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/saves.js"></script>
+    <script src="js/hints.js"></script>
+
+    <script src="js/debug.js"></script>
+
+
+</footer>
+
+</html>
