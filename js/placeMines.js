@@ -40,5 +40,6 @@ function setManualMinesAndStartLevel() {
     changeManualModeButton()
     gManualMode = false
     gManuallyPlacesMines = true
+    gLevel.mineAmount = manualyMined.length
     startLevel()
 }

@@ -6,6 +6,10 @@
 body {
     overflow: hidden;
     padding: 0px;
+    background-image: url(../img/win98-smallwide.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
 }
 
 #game-board {
@@ -79,14 +83,14 @@ body {
 }
 
 .windows-background {
-    background-color: navy;
-    background-image: url(../img/win98-smallwide.png);
-    background-repeat: no-repeat;
+    /* background-color: navy; */
+    /* background-image: url(../img/win98-smallwide.png);
+    background-repeat: no-repeat; */
     /* background-position: top; */
-    background-size: cover;
+    /* background-size: cover;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100%; */
     /* margin: -8px;
     padding: 16px; */
 }
@@ -194,8 +198,8 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     width: 10%;
-    min-width: 32px;
-    min-height: 32px;
+    min-width: 36px;
+    min-height: 36px;
     height: 100%;
     margin: 0 1%;
 }

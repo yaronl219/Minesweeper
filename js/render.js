@@ -16,27 +16,24 @@ function renderScore() {
 
 function renderSmileyFace(face) {
     var playerFace = document.querySelector('.player-icon')
-    console.log(playerFace)
     switch (face) {
         case 'regular':
-            playerFace.style.backgroundImage = ("url(../img/smily_faces-regular.svg");
+            playerFace.style.backgroundImage = ("url(img/smilyfaces-regular.svg");
             break;
         case 'worried':
-            playerFace.style.backgroundImage = ("url(img/smily_faces-worry.svg");
+            playerFace.style.backgroundImage = ("url(img/smilyfaces-worry.svg");
             break;
         case 'cool':
-            playerFace.style.backgroundImage = ("url(img/smily_faces-cool.svg");
+            playerFace.style.backgroundImage = ("url(img/smilyfaces-cool.svg");
             break;
         case 'dead':
-            // playerFace.style.backgroundImage = ("url(img/smily_faces-dead.svg");
-            console.log('dead')
-            playerFace.classList = 'player-icon dead'
+            playerFace.style.backgroundImage = ("url(img/smilyfaces-dead.svg");
             break;
         case 'doom':
-            playerFace.style.backgroundImage = ("url(img/smily_faces-doom.svg");
+            playerFace.style.backgroundImage = ("url(img/smilyfaces-doom.svg");
             break;
         case 'saboteur':
-            playerFace.style.backgroundImage = ("url(img/smily_faces-saboteur.svg")
+            playerFace.style.backgroundImage = ("url(img/smilyfaces-saboteur.svg")
             break;
     }
 

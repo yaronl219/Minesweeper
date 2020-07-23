@@ -9,7 +9,6 @@ function placeAllMines(board, amount) {
     } else {
         var possibleLocations = placeRandomMines(gBoard, amount)
     }
-    console.log(possibleLocations)
     for (var i = 0; i < possibleLocations.length; i++) {
         setCellAttribute(board, possibleLocations[i].i, possibleLocations[i].j, 'isMined')
     }
@@ -20,9 +19,11 @@ function placeRandomMines(board, amount) {
         // get all mineable locations
     var possibleLocations = getCellWithAttributeArray(board, 'isMineable', true)
         // loops as many mines as requested and randomly returns the locations
+
     for (var i = 0; i < amount; i++) {
         var randIdx = getRandomInteger(0, possibleLocations.length, false)
-        mineArray.push(possibleLocations[randIdx])
+        var a = possibleLocations.splice(randIdx, 1)
+        mineArray.push(a[0])
     }
     return mineArray
 }
