@@ -1,14 +1,14 @@
 'use strict'
 // change to worry face on mousedown
 document.addEventListener("mousedown", function() {
-    if (gLevel.isOn) {
+    if (gLevel.isOn && !gLevel.isGameOver) {
         renderSmileyFace('worried')
     }
 })
 
 // change to regular face when user lifts the mouse back up
 document.addEventListener("mouseup", function() {
-    if (gLevel.isOn) {
+    if (gLevel.isOn && !gLevel.isGameOver) {
         renderSmileyFace('regular')
     }
 })
