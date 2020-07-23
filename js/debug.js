@@ -1,4 +1,13 @@
 'use strict'
+var gGodMode = false
+var gShouldRemoveHints = true
+
+
+function setGodMode() {
+    console.log('GOD MODE')
+    gGodMode = true
+    renderSmileyFace('doom')
+}
 
 function logCellContent(board, att) {
     var outputBoard = []

@@ -12,8 +12,9 @@ function saveToArray() {
 function loadFromArray() {
     // gets the last save array and returns it to the board
     gBoard = replicateNestedArrays(saveBoardArray.pop())
-    replicateGameState(saveGameState.pop())
+    gLevel = replicateGameState(saveGameState.pop())
     renderBoard()
+    resetAllHelp()
 }
 
 function replicateGameState(originalObj) {

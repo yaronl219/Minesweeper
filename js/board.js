@@ -2,15 +2,29 @@
 var gBoard;
 
 
+function placeAllMines(board, amount) {
+    // if manual mode, use the gMineArray instead of a random one
+    if (gManuallyPlacesMines) {
+        var possibleLocations = gMineArray
+    } else {
+        var possibleLocations = placeRandomMines(gBoard, amount)
+    }
+    console.log(possibleLocations)
+    for (var i = 0; i < possibleLocations.length; i++) {
+        setCellAttribute(board, possibleLocations[i].i, possibleLocations[i].j, 'isMined')
+    }
+}
 
 function placeRandomMines(board, amount) {
-    // get all mine locations
+    var mineArray = []
+        // get all mineable locations
     var possibleLocations = getCellWithAttributeArray(board, 'isMineable', true)
-        // loops as many mines as requested and randommaly places them
+        // loops as many mines as requested and randomly returns the locations
     for (var i = 0; i < amount; i++) {
         var randIdx = getRandomInteger(0, possibleLocations.length, false)
-        setCellAttribute(board, possibleLocations[randIdx].i, possibleLocations[randIdx].j, 'isMined')
+        mineArray.push(possibleLocations[randIdx])
     }
+    return mineArray
 }
 
 function getCellWithAttributeArray(board, att, val) {
@@ -104,7 +118,7 @@ function setSingleCellState(board, i, j) {
         board[i][j].cellState = 'mined'
     } else if (board[i][j].minedNeighbors > 0) {
         // if has more than one mined neighbor - return the amount
-        board[i][j].cellState = 'minAdj'
+        board[i][j].cellState = `minAdj negCount${board[i][j].minedNeighbors}`
     } else {
         // if all else fails - this should be an empty cell
         board[i][j].cellState = 'blankCell'

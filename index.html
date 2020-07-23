@@ -4,26 +4,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minesweeper</title>
+    <title>Minesweeper 98</title>
+    <link rel="stylesheet" href="css/98.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/smily_faces-saboteur.svg">
+
+
 </head>
 
-<body onload="startLevel()">
-    <div class='scene'>
-        <div class="board-area">
 
+<body onload="startLevel()" onkeypress="keylogger(event)">
+    <div class="windows-background">
+        <div class='popup-modal' hidden=true>
+            <!-- this is a general popup - above all other elements -->
+            <div class="window" id="popup-window-general" hidden=true>
+                <div class="title-bar">
+                    <div class="title-bar-text">Warning</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="window-body general-window-content">
+                    <div class=general-window-image>
+                        <img src="img/mine.svg" alt="">
+                    </div>
+                    <div class="general-window-text">
+                        <div>Lorem ipsum dolor </div>
+                        <div class="general-window-text-btn">
+                            <button onclick="toggleGeneralModal()">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="window" id="popup-window-difficulty" hidden=true>
+                <div class="title-bar">
+                    <div class="title-bar-text">Difficulty</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <h5>Select Difficulty:</h5>
+                    <form>
+                        <fieldset>
+                            <div class="field-row">
+                                <input id="radio13" type="radio" name="choice" value="easy" onchange="toggleCustomDifficulty(false)">
+                                <label for="radio13">Easy</label>
+                            </div>
+                            <div class="field-row">
+                                <input id="radio14" type="radio" name="choice" value="medium" onchange="toggleCustomDifficulty(false)">
+                                <label for="radio14">Medium</label>
+                            </div>
+                            <div class="field-row">
+                                <input id="radio15" type="radio" name="choice" value="expert" onchange="toggleCustomDifficulty(false)">
+                                <label for="radio15">Expert</label>
+                            </div>
+                            <div class="field-row">
+                                <input id="radio16" type="radio" name="choice" value="custom" onchange="toggleCustomDifficulty(true)">
+                                <label for="radio16">Custom</label>
+                            </div>
+                        </fieldset>
+                        <fieldset disabled=true class="custom-difficulty">
+                            <div class="field-row">
+                                <label for="range21">Grid Size</label>
+                                <label for="range22">Low</label>
+                                <input id="range22" type="range" min="4" max="18" value="5" />
+                                <label for="range23">High</label>
+                            </div>
+                            <div class="field-row">
+                                <label for="range23">Amount of mines</label>
+                                <label for="range24">Low</label>
+                                <input id="range24" type="range" min="1" max="40" value="5" />
+                                <label for="range25">High</label>
+                            </div>
+                        </fieldset>
+                        <input type="button" id="ok-btn" value="ok" onclick="selectDifficulty()">
+                    </form>
+                </div>
+            </div>
         </div>
+        <div class='scene'>
+            <div class="window">
+                <div class="title-bar">
+                    <div class="title-bar-text">Minesweeper 98</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Maximize"></button>
+                        <button aria-label="Close"></button>
+                    </div>
+
+                </div>
+                <div class="menu-bar">
+                    <div class="menu-button" onclick="toggleMenuModal('.game-modal-background')">Game
+                        <div class="game-modal-background" hidden="hidden ">
+                            <div class="game-modal">
+                                <div class="menu-button" onclick="startLevel()">New Game</div>
+                                <div class="menu-button" onclick="toggleDifficultyModal()">Settings</div>
+                                <hr/>
+                                <div class="menu-button">Exit</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-button" onclick="toggleMenuModal('.help-modal-background') ">Help
+                        <div class="help-modal-background" hidden="hidden">
+                            <div class="help-modal">
+                                <div class="menu-button" onclick="showInstructions()">Instrucstions</div>
+                                <div class="menu-button" onclick="showAbout()">About</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-bottom-container">
+                    <div class="digital timer">0</div>
+                    <button class="player-icon" onclick="startLevel()"></button>
+                    <div class="digital score">0</div>
+                </div>
+
+
+
+                <div class="middle-element-container">
+                    <div class="left-element side-element">
+                        <button class="hint-btn help-btn" onclick="showHint() " disabled="disabled ">Hint me!</button>
+                        <!-- this is for hints -->
+                        <div class="hint"></div>
+                        <div class="hint"></div>
+                        <div class="hint"></div>
+                    </div>
+
+                    <div class="board-area">
+                        <table id="game-board">
+
+                        </table>
+                    </div>
+                    <div class="right-element side-element">
+                        <button class="safe-btn help-btn" onclick="safeClick()" disabled="disabled">Shield me!</button>
+                        <!-- this is for hints -->
+                        <div class="shield"></div>
+                        <div class="shield"></div>
+                        <div class="shield"></div>
+                    </div>
+                </div>
+                <div class="footer-element">
+                    <div class="manual-div">
+                        <button class="manual-mode" onclick="manualModeOn()">Manual Mode</button>
+                    </div>
+                    <div class="life-bar ">
+                        <div class="heart"></div>
+                        <div class="heart"></div>
+                        <div class="heart"></div>
+                    </div>
+                    <div class="undo">
+                        <button class="undo-btn help-btn" disabled="disabled" onclick="loadFromArray()">Undo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
     </div>
 </body>
 <footer>
-    <script src="js/utils.js"></script>
-    <script src="js/board.js"></script>
-    <script src="js/render.js"></script>
-    <script src="js/game.js"></script>
-    <script src="js/saves.js"></script>
-    <script src="js/hints.js"></script>
-
-    <script src="js/debug.js"></script>
+    <script src="js/utils.js "></script>
+    <script src="js/board.js "></script>
+    <script src="js/render.js "></script>
+    <script src="js/game.js "></script>
+    <script src="js/saves.js "></script>
+    <script src="js/hints.js "></script>
+    <script src="js/extra.js "></script>
+    <script src="js/placeMines.js "></script>
+    <script src="js/debug.js "></script>
 
 
 </footer>
